@@ -1,8 +1,6 @@
-# Airgapped TrustRoot Assembler
+# assemble_trustroot_repository
 
 `main.go` is a script that allows to assemble a TrustRoot `repository` Custom Resource by downloading metadata files from a specified TUF (The Update Framework) repository mirror, initializing a local TUF repository, and generating a TrustRoot Custom Resource YAML. A `repository` TrustRoot is required to use the sigstore policy controller in airgapped environments.
-
-Credit for the original bash script goes to @prezha https://github.com/prezha/trustroot
 
 ## Usage
 
@@ -17,7 +15,7 @@ The tool prints the generated TrustRoot Custom Resource YAML to stdout. All othe
 ```sh
 mirror https://tuf-repo-cdn.sigstore.dev, root https://tuf-repo-cdn.sigstore.dev/10.root.json
 Root status: {
-  "local": "/Users/falcorocks/.sigstore/root",
+  "local": "/Users/federico/.sigstore/root",
   "remote": "https://tuf-repo-cdn.sigstore.dev",
   "metadata": {
     "root.json": {
