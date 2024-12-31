@@ -89,3 +89,4 @@ spec:
 6. **Compress Repository**: The tool compresses the repository directory into a tar.gz archive.
 7. **Base64 Encode Files**: The tool base64 encodes the repository archive and the `root.json` file.
 8. **Generate TrustRoot YAML**: The tool generates a TrustRoot Custom Resource YAML and prints it to stdout.
+
