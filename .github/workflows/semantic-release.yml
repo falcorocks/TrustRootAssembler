@@ -3,10 +3,11 @@ name: Semantic Release
 on:
   push:
     branches:
-      - main
-      - dev/*
-      - feature/*
-      - hotfix/*
+      # - main
+      # - dev/*
+      # - feature/*
+      # - hotfix/*
+      - never
 
 jobs:
   semantic-release:
