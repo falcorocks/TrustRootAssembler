@@ -1,3 +1,10 @@
+## [0.0.4](https://github.com/falcorocks/TrustRootAssembler/compare/v0.0.3...v0.0.4) (2024-12-31)
+
+
+### Bug Fixes
+
+* release on tag push ([95297b8](https://github.com/falcorocks/TrustRootAssembler/commit/95297b80e6be03f930738433889c37f98325d1cb))
+
 ## [0.0.3](https://github.com/falcorocks/TrustRootAssembler/compare/v0.0.2...v0.0.3) (2024-12-31)
 
 
