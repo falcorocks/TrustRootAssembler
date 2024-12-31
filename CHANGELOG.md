@@ -1,3 +1,10 @@
+## [0.0.3](https://github.com/falcorocks/TrustRootAssembler/compare/v0.0.2...v0.0.3) (2024-12-31)
+
+
+### Bug Fixes
+
+* example update ([a97b3b4](https://github.com/falcorocks/TrustRootAssembler/commit/a97b3b47685d59fc1be8f44a0436096875f2d7c2))
+
 ## [0.0.2](https://github.com/falcorocks/TrustRootAssembler/compare/v0.0.1...v0.0.2) (2024-12-31)
 
 
