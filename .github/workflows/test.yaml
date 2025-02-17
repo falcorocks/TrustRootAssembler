@@ -40,5 +40,5 @@ jobs:
         run: |
           (set -o pipefail && ./policy-controller/policy-tester \
           --policy=tests/testdata/cip-pass-all.yaml \
-          --image=alpine:latest 
+          --image=alpine:latest \
           --trustroot=repository.yaml | jq)
