@@ -24,3 +24,9 @@ jobs:
 
       - name: make policy-controller
         run: cd policy-controller && make policy-tester
+
+      - name: test
+        run: |
+          (set -o pipefail && ./policy-controller/policy-tester \
+          --policy=policy-controller/test/testdata/policy-controller/tester/cip-public-keyless.yaml \
+          --image=ghcr.io/sigstore/cosign/cosign:v1.9.0 | jq)
