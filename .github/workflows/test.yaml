@@ -29,7 +29,7 @@ jobs:
         run: ./policy-controller/policy-tester --help
 
       - name: run assembler
-        run: go run main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
+        run: go run cmd/main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
 
       - name: test assembled trustroot
         run: |
