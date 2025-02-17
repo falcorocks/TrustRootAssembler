@@ -6,6 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout this repository
@@ -30,6 +32,9 @@ jobs:
 
       - name: run assembler
         run: go run cmd/main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
+
+      - name: cat
+        run: cat repository.yaml
 
       - name: test assembled trustroot
         run: |
