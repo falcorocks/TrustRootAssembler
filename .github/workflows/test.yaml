@@ -25,6 +25,9 @@ jobs:
       - name: make policy-controller
         run: cd policy-controller && make policy-tester
 
+      - name: print help
+        run: ./policy-controller/policy-tester help 
+
       - name: test
         run: |
           (set -o pipefail && ./policy-controller/policy-tester \
