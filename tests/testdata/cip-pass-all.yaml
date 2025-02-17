@@ -1,0 +1,11 @@
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: pass-all
+spec:
+  images:
+    - glob: "**"
+  authorities:
+    - name: whitelist
+      static:
+        action: pass

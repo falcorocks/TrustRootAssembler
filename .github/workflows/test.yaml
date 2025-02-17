@@ -6,6 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout this repository
@@ -24,3 +26,19 @@ jobs:
 
       - name: make policy-controller
         run: cd policy-controller && make policy-tester
+
+      - name: print help
+        run: ./policy-controller/policy-tester --help
+
+      - name: run assembler
+        run: go run cmd/main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
+
+      - name: cat
+        run: cat repository.yaml
+
+      - name: test assembled trustroot
+        run: |
+          (set -o pipefail && ./policy-controller/policy-tester \
+          --policy=tests/testdata/cip-pass-all.yaml \
+          --image=alpine:latest \
+          --trustroot=repository.yaml | jq)
