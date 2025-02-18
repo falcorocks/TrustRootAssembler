@@ -41,7 +41,7 @@ jobs:
         run: ./policy-controller/policy-tester --help
       
       - name: run prezha/trustroot
-        run: cd prezha && bash trustroot.sh https://tuf-repo-cdn.sigstore.dev/12.root.json tuf-repo-cdn.sigstore.dev
+        run: cd prezha && bash trustroot.sh https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root.json https://tuf-repo-cdn.sigstore.dev
       
       - name: cat
         run: cat prezha/TrustRoot.yaml
