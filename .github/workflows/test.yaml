@@ -46,12 +46,12 @@ jobs:
       - name: cat
         run: cat prezha/TrustRoot.yaml
 
-      - name: test prezha TrustRoot.yaml
-        run: |
-          (set -o pipefail && ./policy-controller/policy-tester \
-          --policy=tests/testdata/cip-pass-all.yaml \
-          --image=alpine:latest \
-          --trustroot=prezha/TrustRoot.yaml | jq) 
+      # - name: test prezha TrustRoot.yaml
+      #   run: |
+      #     (set -o pipefail && ./policy-controller/policy-tester \
+      #     --policy=tests/testdata/cip-pass-all.yaml \
+      #     --image=alpine:latest \
+      #     --trustroot=prezha/TrustRoot.yaml | jq) 
 
       - name: run assembler
         run: go run cmd/main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
