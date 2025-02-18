@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
@@ -20,7 +20,13 @@ jobs:
         with:
           repository: sigstore/policy-controller
           path: policy-controller
-          
+      
+      - name: Checkout prezha/trustroot
+        uses: actions/checkout@v4
+        with:
+          repository: prezha/trustroot
+          path: prezha
+ 
       - name: setup go
         uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
 
@@ -29,6 +35,19 @@ jobs:
 
       - name: print help
         run: ./policy-controller/policy-tester --help
+      
+      - name: run prezha/trustroot
+        run: cd prezha && bash trustroot.sh https://tuf-repo-cdn.sigstore.dev/12.root.json tuf-repo-cdn.sigstore.dev
+      
+      - name: cat
+        run: cat prezha/TrustRoot.yaml
+
+      - name: test prezha TrustRoot.yaml
+        run: |
+          (set -o pipefail && ./policy-controller/policy-tester \
+          --policy=tests/testdata/cip-pass-all.yaml \
+          --image=alpine:latest \
+          --trustroot=prezha/TrustRoot.yaml | jq) 
 
       - name: run assembler
         run: go run cmd/main.go --mirror https://tuf-repo-cdn.sigstore.dev > repository.yaml
